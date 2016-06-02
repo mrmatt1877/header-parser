@@ -1,8 +1,13 @@
 var express = require("express");
 var app = express();
+var useragent = require('useragent');
 
- app.get("/", function(req, res) {
-    res.sendFile(__dirname + '/index.html')
+ app.get("/api/whoami/", function(req, res) {
+   var ip = req.headers['x-forwarded-for'];
+   var language = req.headers['accept-language'].split(",")[0];
+   var software = useragent.parse(req.headers['user-agent']);
+   
+   res.send({ipaddress: ip, language: language, software: software});
  });
 
 
