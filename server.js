@@ -7,7 +7,9 @@ var useragent = require('useragent');
    var language = req.headers['accept-language'].split(",")[0];
    var software = useragent.parse(req.headers['user-agent']);
    
-   console.log(software[0]);
+   console.log("hello");
+   console.log(software);
+   console.log(software[os][0]);
    
    res.send({ipaddress: ip, language: language, software: software});
  });
