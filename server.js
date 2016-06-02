@@ -1,5 +1,5 @@
 var express = require("express");
-var app = express();
+var app = server();
 var useragent = require('useragent');
 
  app.get("/api/whoami/", function(req, res) {
